@@ -1,0 +1,21 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': post.loveIts > 0,
+                'list-group-item-danger': post.loveIts < 0}">
+
+  <div [ngClass]="{'text-success': post.loveIts > 0,
+                    'text-danger': post.loveIts < 0 }">
+
+                    <h3>
+                      {{ post.title }}
+                      <em class="text-muted h5 pull-right">{{ post.create_at | date: 'dd/MM/y, hh:MM aa' | uppercase }}</em>
+                    </h3>
+                    <p>{{ post.content }}</p>
+
+  </div>
+
+  <div class="btn-group" role="group" aria-label="like">
+      <button class="btn btn-success" [disabled]="checked" (click)='onLoveIt()'>Love it</button>
+      <button class="btn btn-danger" [disabled]="checked" (click)='onDontLoveIt()'>Don't love it</button>
+      <button class="btn btn-default" *ngIf="checked"  (click)="onCancel()" >Cansel</button>
+  </div>
+</li>
