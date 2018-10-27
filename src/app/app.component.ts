@@ -7,26 +7,22 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
 
-  posts = [
-    {
-      title: 'journal des étudiant',
-      content: 'Aujourd\'hui c\'est la rentrée scolaire',
-      loveIts: -2,
-      create_at: Date.now()
-    },
-    {
-      title: 'journées porte ouverte',
-      content: 'Participer à la journée porte ouverte tout les mercredis durance ce premier moi de septembre',
-      loveIts: 2,
-      create_at: Date.now()
-    },
-    {
-      title: 'plus un post encore',
-      content: 'Ceci est un post supplémentaire...',
-      loveIts: 0,
-      create_at: Date.now()
-    }
+  posts: Post[] = [
+    new Post('Journal des étudiants', 'Aujourd\'hui c\'est la rentrée scolaire', -2),
+    new Post('journées porte ouverte', 'Participer à la journée porte ouverte tout les mercredis durance ce premier moi de septembre', 2),
+    new Post('plus un post encore', 'Ceci est un post supplémentaire...', 0)
   ];
 
   constructor() {}
+}
+
+export class Post {
+
+  created_at: Date;
+
+  constructor(private title: string, private content: string, private loveIts) {
+    this.created_at = new Date();
+    // console.log(this.created_at);
+  }
+
 }

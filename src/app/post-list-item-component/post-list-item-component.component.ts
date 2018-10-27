@@ -8,8 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PostListItemComponentComponent implements OnInit {
 
   @Input() post: any;
-  checked: boolean;
-  previousAction: string;
+  // checked: boolean;
+  // previousAction: string;
 
   constructor() { }
 
@@ -18,18 +18,19 @@ export class PostListItemComponentComponent implements OnInit {
 
   onLoveIt() {
     this.post.loveIts++;
-    this.checked = true;
-    this.previousAction = 'love it';
+    // this.checked = true;
+    // this.previousAction = 'love it';
     console.log('love it +1');
   }
 
   onDontLoveIt() {
     this.post.loveIts--;
-    this.checked = true;
-    this.previousAction = 'don\'t love it -1';
+    // this.checked = true;
+    // this.previousAction = 'don\'t love it -1';
     console.log('don\'t love it -1');
   }
 
+/**
   onCancel() {
     this.checked = false;
     if (this.previousAction === 'love it') {
@@ -38,4 +39,5 @@ export class PostListItemComponentComponent implements OnInit {
       this.post.loveIts++;
     }
   }
+  */
 }
